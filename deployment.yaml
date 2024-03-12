@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-servlet-deployment
+spec:
+  replicas: 2  # Adjust as needed
+  selector:
+    matchLabels:
+      app: java-servlet
+  template:
+    metadata:
+      labels:
+        app: java-servlet
+    spec:
+      containers:
+      - name: java-servlet-container
+        image: sayalisa2li7/servlet-image:1.8
+        ports:
+        - containerPort: 8080  # Adjust if your servlet runs on a different port
